@@ -1,0 +1,94 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #4CAF50;
+  font-size: 2rem; /* Larger font size for mobile */
+}
+
+#game {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  margin-top: 20px;
+  width: 90%; /* Responsive width */
+  max-width: 500px; /* Limit width on desktop */
+}
+
+#output {
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
+.correct {
+  color: green;
+}
+
+.wrong {
+  color: red;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 1em;
+  width: 80%; /* Responsive width */
+  margin-top: 10px;
+  max-width: 300px; /* Limit width on desktop */
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 80%; /* Responsive width */
+  max-width: 300px; /* Limit width on desktop */
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.diff {
+  font-family: monospace;
+  background: #f8f8f8;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.diff span.correct {
+  color: green;
+}
+
+.diff span.incorrect {
+  color: red;
+  text-decoration: underline;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem; /* Smaller font size for mobile */
+  }
+
+  #game {
+    padding: 15px;
+  }
+
+  input[type="text"], button {
+    width: 90%; /* Wider input and button on mobile */
+  }
+}

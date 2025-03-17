@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Игра: Учим немецкие слова</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Игра: Учим немецкие слова (A1)</h1>
+  <div id="game">
+    <p>Переведите слово на немецкий:</p>
+    <p id="word"></p>
+    <input type="text" id="answer" placeholder="Введите ответ">
+    <button onclick="checkAnswer()">Проверить</button>
+    <div id="output"></div>
+  </div>
+
+  <script src="words.json"></script>
+  <script src="script.js"></script>
+</body>
+</html>
