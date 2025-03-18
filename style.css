@@ -29,6 +29,17 @@ h1 {
   font-size: 1.2em;
 }
 
+hr {
+  border: 0;
+  height: 1px;
+  background: #ddd;
+  margin: 20px 0;
+}
+
+#word {
+  font-size: 1.2em;
+}
+
 .correct {
   color: green;
 }

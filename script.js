@@ -49,30 +49,31 @@ let currentEntry;
 
 function nextWord() {
   currentEntry = getRandomWord();
-  wordElement.innerHTML = `<b>${currentEntry[0]}</b><br><small>${currentEntry[1]}</small>`;
+  wordElement.innerHTML = `<p><b>${currentEntry.russianWord}</b><br><small>${currentEntry.russianExample}</small></p>`;
   answerInput.value = '';
   answerInput.focus();
 }
 
 // Function to check the user's answer
 function checkAnswer() {
+  output.innerHTML = `<hr><i>${wordElement.innerHTML}</i>`;
+  wordElement.innerHTML = ``;
+
   const userAnswer = answerInput.value.trim();
-  const correctAnswer = currentEntry[2];
+  const correctAnswer = currentEntry.germanWord;
+  const diff = getDiff(userAnswer, correctAnswer);
+
+  output.innerHTML += `<p>Ваш ответ: <span class="diff">${diff}</span><p>`;
 
   if (userAnswer === correctAnswer) {
     correctCount++;
-    output.innerHTML = `
-      <p class="correct">✅ Правильно!</p>
-    `;
+    output.innerHTML += `<p class="correct">✅ Правильно!</p>`;
   } else {
     wrongCount++;
-    const diff = getDiff(userAnswer, correctAnswer);
-    output.innerHTML = `
-      <p class="wrong">❌ Неправильно: <span class="diff">${diff}</span></p>
-    `;
+    output.innerHTML += `<p class="wrong">❌ Неправильно</p>`;
   }
 
-  output.innerHTML += `<p><b>${currentEntry[2]}</b><br><small>${currentEntry[3]}</small></p>`;
+  output.innerHTML += `<p><b>${currentEntry.germanWord}</b><br><small>${currentEntry.germanExample}</small></p>`;
 
   output.innerHTML +=
     `<a id="leo-link" href="https://dict.leo.org/russisch-deutsch/${encodeURIComponent(correctAnswer)}" target="_blank" class="leo-button">Открыть в словаре</a>`;
