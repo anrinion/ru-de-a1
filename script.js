@@ -58,18 +58,22 @@ function startGame() {
 // Function to check the user's answer
 function checkAnswer() {
   const russianWord = currentWord;
-  const correctAnswer = wordList[russianWord];
+  const [correctAnswer, exampleSentence] = wordList[russianWord];
   const userAnswer = answerInput.value.trim();
 
   if (userAnswer === correctAnswer) {
     correctCount++;
-    output.innerHTML = `<p class="correct">✅ Правильно! "${russianWord}" = "${correctAnswer}"</p>`;
+    output.innerHTML = `
+      <p class="correct">✅ Правильно! "${russianWord}" = "${correctAnswer}"</p>
+      <p><strong>Пример употребления:</strong> ${exampleSentence}</p>
+    `;
   } else {
     wrongCount++;
     const diff = getDiff(userAnswer, correctAnswer);
     output.innerHTML = `
       <p class="wrong">❌ Неправильно. "${russianWord}" = "${correctAnswer}"</p>
       <p>Ваш ответ: <span class="diff">${diff}</span></p>
+      <p><strong>Пример употребления:</strong> ${exampleSentence}</p>
     `;
   }
 
