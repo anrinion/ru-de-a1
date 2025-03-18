@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Игра: Учим немецкие слова</title>
+  <meta name="description" content="Игра для изучения немецких слов. Переводите слова с русского на немецкий и улучшайте свои навыки!">
+  <meta name="keywords" content="немецкий, слова, игра, обучение, язык">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
+  <title>Игра: Учим немецкие слова</title>
 </head>
 <body>
   <h1>Игра: Учим немецкие слова (A1)</h1>
@@ -14,6 +17,17 @@
     <input type="text" id="answer" placeholder="Введите ответ">
     <button onclick="checkAnswer()">Проверить</button>
     <div id="output"></div>
+  </div>
+
+  <button id="feedback-button" onclick="openFeedbackModal()">Сообщить об ошибке</button>
+
+  <div id="feedback-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeFeedbackModal()">&times;</span>
+      <h2>Сообщить об ошибке</h2>
+      <p>Если вы заметили ошибку или хотите предложить улучшение, вы можете создать issue или pull request на GitHub. Это некоммерческий проект, который я делаю в свободное время, так что ваша помощь очень ценится!</p>
+      <a href="https://github.com/anrinion/ru-de-a1" target="_blank" class="github-link">Перейти на GitHub</a>
+    </div>
   </div>
 
   <script src="words.json"></script>

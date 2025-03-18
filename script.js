@@ -2,6 +2,7 @@
 const wordElement = document.getElementById('word');
 const answerInput = document.getElementById('answer');
 const output = document.getElementById('output');
+const feedbackModal = document.getElementById('feedback-modal');
 
 // Counters for correct and wrong answers
 let correctCount = 0;
@@ -57,22 +58,18 @@ function startGame() {
 // Function to check the user's answer
 function checkAnswer() {
   const russianWord = currentWord;
-  const [correctAnswer, exampleSentence] = wordList[russianWord];
+  const correctAnswer = wordList[russianWord];
   const userAnswer = answerInput.value.trim();
 
   if (userAnswer === correctAnswer) {
     correctCount++;
-    output.innerHTML = `
-      <p class="correct">✅ Правильно! "${russianWord}" = "${correctAnswer}"</p>
-      <p><strong>Пример употребления:</strong> ${exampleSentence}</p>
-    `;
+    output.innerHTML = `<p class="correct">✅ Правильно! "${russianWord}" = "${correctAnswer}"</p>`;
   } else {
     wrongCount++;
     const diff = getDiff(userAnswer, correctAnswer);
     output.innerHTML = `
       <p class="wrong">❌ Неправильно. "${russianWord}" = "${correctAnswer}"</p>
       <p>Ваш ответ: <span class="diff">${diff}</span></p>
-      <p><strong>Пример употребления:</strong> ${exampleSentence}</p>
     `;
   }
 
@@ -96,6 +93,23 @@ answerInput.addEventListener('keydown', function(event) {
     checkAnswer(); // Call the answer checking function
   }
 });
+
+// Open feedback modal
+function openFeedbackModal() {
+  feedbackModal.style.display = 'block';
+}
+
+// Close feedback modal
+function closeFeedbackModal() {
+  feedbackModal.style.display = 'none';
+}
+
+// Close modal if clicked outside of it
+window.onclick = function(event) {
+  if (event.target === feedbackModal) {
+    closeFeedbackModal();
+  }
+};
 
 // Load words and start the game
 loadWords();
